@@ -21,7 +21,7 @@ const componentMenus = [
   { name: 'Tag', id: 'tag' },
   { name: 'Toast', id: 'toast' },
   { name: 'Tree', id: 'tree' },
-  { name: 'Top Bar', id: 'top-bar' },
+  { name: 'Top Bar', id: 'top-bar' }
 ]
 
 // 알파벳별로 그룹화
@@ -33,7 +33,7 @@ const groupedMenus = computed(() => {
     }
     acc[firstLetter].push(menu)
     return acc
-  }, {} as Record<string, { name: string; id: string }[]>)
+  }, {} as Record<string, { name: string, id: string }[]>)
 })
 
 // 라우터 이동 함수

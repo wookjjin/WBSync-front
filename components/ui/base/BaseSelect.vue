@@ -1,8 +1,8 @@
 <script setup lang="ts">
 export interface SelectOption {
-  value: string | number
-  label: string
-  disabled?: boolean
+  value: string | number,
+  label: string,
+  disabled?: boolean,
 }
 
 const {
@@ -10,17 +10,17 @@ const {
   label = '',
   placeholder = '선택해주세요',
   disabled = false,
-  error = false,
+  error = false
 } = defineProps<{
-  options: SelectOption[]
-  label?: string
-  placeholder?: string
-  disabled?: boolean
-  error?: boolean
+  options: SelectOption[],
+  label?: string,
+  placeholder?: string,
+  disabled?: boolean,
+  error?: boolean,
 }>()
 
 const emit = defineEmits<{
-  (e: 'change', value: string | number): void
+  (e: 'change', value: string | number): void,
 }>()
 
 const isOpen = ref(false)
@@ -30,7 +30,7 @@ const dropdownRef = ref<HTMLElement | null>(null)
 const dropDirection = ref<'down' | 'up'>('down')
 
 const selectedOption = computed(() =>
-  options.find(option => option.value === model.value),
+  options.find(option => option.value === model.value)
 )
 
 const updateDropdownPosition = () => {
@@ -48,8 +48,7 @@ const updateDropdownPosition = () => {
   // 아래쪽 공간이 드롭다운 높이보다 작고 위쪽 공간이 더 크면 위로 표시
   if (spaceAbove > spaceBelow) {
     dropDirection.value = 'up'
-  }
-  else {
+  } else {
     dropDirection.value = 'down'
   }
 }

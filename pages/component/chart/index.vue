@@ -9,9 +9,9 @@ const customBarData = ref({
   datasets: [
     {
       ...barChartData.datasets[0],
-      data: [10, 15, 8, 12, 5, 7],
-    },
-  ],
+      data: [10, 15, 8, 12, 5, 7]
+    }
+  ]
 })
 
 const customBarOptions = ref(barChartOptions)
@@ -25,7 +25,7 @@ const updateBarChartData = () => {
       'April',
       'May',
       'June',
-      'July',
+      'July'
     ],
     datasets: [{
       label: 'My First Dataset',
@@ -37,7 +37,7 @@ const updateBarChartData = () => {
         'rgba(75, 192, 192, 0.2)',
         'rgba(54, 162, 235, 0.2)',
         'rgba(153, 102, 255, 0.2)',
-        'rgba(201, 203, 207, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
       ],
       borderColor: [
         'rgb(255, 99, 132)',
@@ -46,10 +46,10 @@ const updateBarChartData = () => {
         'rgb(75, 192, 192)',
         'rgb(54, 162, 235)',
         'rgb(153, 102, 255)',
-        'rgb(201, 203, 207)',
+        'rgb(201, 203, 207)'
       ],
-      borderWidth: 1,
-    }],
+      borderWidth: 1
+    }]
   }
 }
 
@@ -63,9 +63,9 @@ const customLineData = ref({
     {
       label: 'Data One',
       backgroundColor: '#f87979',
-      data: [40, 39, 10, 40, 39, 80, 40],
-    },
-  ],
+      data: [40, 39, 10, 40, 39, 80, 40]
+    }
+  ]
 })
 
 const customLineOptions = ref(lineChartOptions)
@@ -79,13 +79,13 @@ const updateLineChartData = () => {
       'April',
       'May',
       'June',
-      'July',
+      'July'
     ],
     datasets: [{
       label: 'Data One',
       data: [65, 59, 80, 81, 56, 55, 40],
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
-    }],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)'
+    }]
   }
 }
 
@@ -99,9 +99,9 @@ const customDoughnutData = ref({
   datasets: [
     {
       backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-      data: [40, 20, 80, 10],
-    },
-  ],
+      data: [40, 20, 80, 10]
+    }
+  ]
 })
 
 const customDoughnutOptions = ref(doughnutChartOptions)
@@ -112,9 +112,9 @@ const updateDoughnutChartData = () => {
     datasets: [
       {
         backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#7288ff'],
-        data: [40, 20, 80, 10, 30],
-      },
-    ],
+        data: [40, 20, 80, 10, 30]
+      }
+    ]
   }
 }
 </script>

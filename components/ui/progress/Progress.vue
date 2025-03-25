@@ -4,10 +4,10 @@ export type ProgressType = 'CIRCLE' | 'BAR'
 
 const {
   progressMessage = 'Please wait...',
-  progressType = 'BAR',
+  progressType = 'BAR'
 } = defineProps<{
-  progressMessage?: ProgressMessage
-  progressType?: ProgressType
+  progressMessage?: ProgressMessage,
+  progressType?: ProgressType,
 }>()
 </script>
 

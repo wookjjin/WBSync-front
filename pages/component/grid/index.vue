@@ -1,57 +1,57 @@
 <script setup lang='ts'>
 import type { Column } from '~/components/ui/grid/GridBody.vue'
-import type { TotalCount } from '~/components/ui/grid/GridHeader.vue'
-import type { LimitOption } from '~/components/ui/pagination/Pagination.vue'
 import GridBody from '~/components/ui/grid/GridBody.vue'
+import type { TotalCount } from '~/components/ui/grid/GridHeader.vue'
 import GridHeader from '~/components/ui/grid/GridHeader.vue'
+import type { LimitOption } from '~/components/ui/pagination/Pagination.vue'
 import Pagination from '~/components/ui/pagination/Pagination.vue'
 import { maskPhoneNumber } from '~/utils'
 
 interface MockRow {
-  name: string;
-  age: number;
-  rank: string;
-  genderCode: string;
-  gender: string;
-  department: string;
-  residence: string;
-  cellPhone: string | number;
+  name: string,
+  age: number,
+  rank: string,
+  genderCode: string,
+  gender: string,
+  department: string,
+  residence: string,
+  cellPhone: string | number,
 }
 
 export interface PageLimit {
-  label: string;
-  value: number;
+  label: string,
+  value: number,
 }
 
 export interface PageProps {
-  totalPageCount: number;
-  pageVisibleCount: number;
+  totalPageCount: number,
+  pageVisibleCount: number,
 }
 
 export interface PageParams {
-  currentPage: number;
-  currentPageLimit: number;
+  currentPage: number,
+  currentPageLimit: number,
 }
 
 const pageLimitOptions = ref<LimitOption<PageLimit>[]>([
   {
     label: '10개씩 보기',
-    value: 10,
+    value: 10
   },
   {
     label: '30개씩 보기',
-    value: 30,
+    value: 30
   },
   {
     label: '50개씩 보기',
-    value: 50,
-  },
+    value: 50
+  }
 ])
 
 const pageVisibleCount = ref<number>(10)
 const pageParams = ref<PageParams>({
   currentPage: 1,
-  currentPageLimit: 10,
+  currentPageLimit: 10
 })
 
 const totalCount = ref<TotalCount>(1000)
@@ -62,44 +62,44 @@ const columns = ref<Column[]>([
     key: 'name',
     label: 'Name',
     align: 'center',
-    sortable: true,
+    sortable: true
   },
   {
     key: 'age',
     label: 'Age',
-    align: 'center',
+    align: 'center'
   },
   {
     key: 'rank',
     label: 'Rank',
-    align: 'center',
+    align: 'center'
   },
   {
     key: 'genderCode',
     label: 'GenderCode',
     align: 'center',
-    visible: false,
+    visible: false
   },
   {
     key: 'gender',
     label: 'Gender',
-    align: 'center',
+    align: 'center'
   },
   {
     key: 'department',
     label: 'Dept.',
-    align: 'center',
+    align: 'center'
   },
   {
     key: 'residence',
     label: 'Residence',
-    align: 'center',
+    align: 'center'
   },
   {
     key: 'cellPhone',
     label: 'cellPhone',
-    align: 'center',
-  },
+    align: 'center'
+  }
 ])
 
 const mockRows = ref<MockRow[]>([
@@ -111,7 +111,7 @@ const mockRows = ref<MockRow[]>([
     gender: '남',
     department: '컨버전스사업팀',
     residence: '서울특별시 **동',
-    cellPhone: '01012345678',
+    cellPhone: '01012345678'
   },
   {
     name: '김진욱',
@@ -121,7 +121,7 @@ const mockRows = ref<MockRow[]>([
     gender: '남',
     department: '컨버전스사업팀',
     residence: '인천광역시 **동',
-    cellPhone: '01012345678',
+    cellPhone: '01012345678'
   },
   {
     name: '채정훈',
@@ -131,7 +131,7 @@ const mockRows = ref<MockRow[]>([
     gender: '남',
     department: 'Data플랫폼사업팀',
     residence: '경기도 의정부시 **동',
-    cellPhone: '01012345678',
+    cellPhone: '01012345678'
   },
   {
     name: '이민우',
@@ -141,8 +141,8 @@ const mockRows = ref<MockRow[]>([
     gender: '남',
     department: 'UX STUDIO TF',
     residence: '서울시 은평구 xx동',
-    cellPhone: '01012345678',
-  },
+    cellPhone: '01012345678'
+  }
 ])
 
 const columnClickEvent = (column: Column) => {

@@ -5,21 +5,21 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
     '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
+    '@vueuse/nuxt'
   ],
   components: [
     {
       path: '~/components',
-      pathPrefix: false,
-    },
+      pathPrefix: false
+    }
   ],
   devtools: { enabled: false },
   css: ['~/styles/main.css'],
   build: {
-    transpile: ['@vuepic/vue-datepicker'],
+    transpile: ['@vuepic/vue-datepicker']
   },
   compatibilityDate: '2024-11-01',
   eslint: {
     // options
-  },
+  }
 })

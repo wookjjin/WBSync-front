@@ -1,6 +1,3 @@
-/* eslint-disable regexp/optimal-quantifier-concatenation */
-/* eslint-disable regexp/no-misleading-capturing-group */
-
 import { useConfirmStore } from '~/store/confirm'
 import { useLoadingStore } from '~/store/progress'
 import { useToastStore } from '~/store/toast'
@@ -16,14 +13,11 @@ export const formatTellNumber = (phone: string | number) => {
 
   if (/^01\d{8,9}$/.test(cleaned)) {
     return cleaned.replace(/^(01\d)(\d{3,4})(\d{4})$/, '$1-$2-$3')
-  }
-  else if (/^02\d{7,8}$/.test(cleaned)) {
+  } else if (/^02\d{7,8}$/.test(cleaned)) {
     return cleaned.replace(/^(02)(\d{3,4})(\d{4})$/, '$1-$2-$3')
-  }
-  else if (/^0\d{9,10}$/.test(cleaned)) {
+  } else if (/^0\d{9,10}$/.test(cleaned)) {
     return cleaned.replace(/^(\d{3})(\d{3,4})(\d{4})$/, '$1-$2-$3')
-  }
-  else if (/^1\d{7}$/.test(cleaned)) {
+  } else if (/^1\d{7}$/.test(cleaned)) {
     return cleaned.replace(/^(\d{4})(\d{4})$/, '$1-$2')
   }
   return cleaned
@@ -35,14 +29,12 @@ export const maskPhoneNumber = (phone: string | number) => {
 
   if (/^01\d-\d{3,4}-\d{4}$/.test(formatted)) {
     return formatted.replace(/(\d{2,3}-\d{3,4})-\d{4}$/, '$1-****')
-  }
-  else if (
+  } else if (
     /^02-\d{3,4}-\d{4}$/.test(formatted)
     || /^\d{3}-\d{3,4}-\d{4}$/.test(formatted)
   ) {
     return formatted.replace(/^(\d{2,3})-(\d{1,2})\d+-(\d{4})$/, '$1-**$3')
-  }
-  else if (/^1\d{3}-\d{4}$/.test(formatted)) {
+  } else if (/^1\d{3}-\d{4}$/.test(formatted)) {
     return formatted.replace(/(\d{4})-\d{4}$/, '$1-****')
   }
 
@@ -56,8 +48,7 @@ export async function fetchWithLoading(fetchFunction: () => Promise<any>) {
   try {
     const response = await fetchFunction()
     return response
-  }
-  finally {
+  } finally {
     setTimeout(() => loadingStore.stopLoading(), 1000)
   }
 }
@@ -74,7 +65,7 @@ export const bakeToast = {
   },
   default: (message: string) => {
     useToastStore().addToast(message, 'DEFAULT')
-  },
+  }
 }
 
 export const useConfirm = (options: Partial<ReturnType<typeof useConfirmStore>['options']>) => {

@@ -1,3 +1,5 @@
+import stylistic from '@stylistic/eslint-plugin'
+
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
@@ -17,7 +19,9 @@ export default withNuxt(
         baseIndent: 1,
         alignAttributesVertically: true
       }],
-      // 새로 추가된 Vue 규칙들
+      'vue/no-multi-spaces': ['error', {
+        ignoreProperties: false
+      }],
       'vue/component-name-in-template-casing': ['error', 'PascalCase'],
       'vue/no-unused-refs': 'error',
       'vue/require-default-prop': 'error',
@@ -69,34 +73,7 @@ export default withNuxt(
         varsIgnorePattern: '^_'
       }], // 사용하지 않는 변수에 대한 처리 개선
       'complexity': ['warn', 10], // 함수 복잡도 제한
-      'max-lines-per-function': ['warn', 50] // 함수 라인 수 제한
-    }
-  },
-  {
-    rules: {
-      '@stylistic/semi': ['error', 'never'],
-      '@stylistic/quotes': ['error', 'single'],
-      '@stylistic/no-trailing-spaces': 'error',
-      '@stylistic/space-infix-ops': 'error',
-      '@stylistic/member-delimiter-style': ['error',
-        {
-          multiline: {
-            delimiter: 'comma',
-            requireLast: true
-          },
-          singleline: {
-            delimiter: 'comma',
-            requireLast: false
-          },
-          multilineDetection: 'brackets'
-        }
-      ],
-      '@stylistic/arrow-spacing': ['error', { before: true, after: true }],
-      '@stylistic/object-curly-spacing': ['error', 'always'],
-      '@stylistic/space-before-blocks': 'error',
-      '@stylistic/brace-style': 'error',
-      '@stylistic/comma-dangle': ['error', 'never'],
-      '@stylistic/template-curly-spacing': 'error',
+      'max-lines-per-function': ['warn', 50], // 함수 라인 수 제한
       'sort-imports': ['error', {
         ignoreCase: false,
         ignoreDeclarationSort: false,
@@ -122,6 +99,36 @@ export default withNuxt(
       }],
       'import/newline-after-import': 'error',
       'import/no-unresolved': 'error'
+    }
+  },
+  {
+    plugins: {
+      '@stylistic': stylistic
+    },
+    rules: {
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/quotes': ['error', 'single'],
+      '@stylistic/no-trailing-spaces': 'error',
+      '@stylistic/space-infix-ops': 'error',
+      '@stylistic/member-delimiter-style': ['error',
+        {
+          multiline: {
+            delimiter: 'comma',
+            requireLast: true
+          },
+          singleline: {
+            delimiter: 'comma',
+            requireLast: false
+          },
+          multilineDetection: 'brackets'
+        }
+      ],
+      '@stylistic/arrow-spacing': ['error', { before: true, after: true }],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/space-before-blocks': 'error',
+      '@stylistic/brace-style': 'error',
+      '@stylistic/comma-dangle': ['error', 'never'],
+      '@stylistic/template-curly-spacing': 'error'
     }
   }
 )

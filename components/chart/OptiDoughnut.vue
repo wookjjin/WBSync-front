@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import type { doughnutChartData, doughnutChartOptions } from '~/composables/chart'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import { Doughnut } from 'vue-chartjs'
 
+import type { doughnutChartData, doughnutChartOptions } from '~/composables/chart'
+
 defineProps<{
-  data: typeof doughnutChartData
-  options: typeof doughnutChartOptions
+  data: typeof doughnutChartData,
+  options: typeof doughnutChartOptions,
 }>()
 
 ChartJS.register(ArcElement, Tooltip, Legend)

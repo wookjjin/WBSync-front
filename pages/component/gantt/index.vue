@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
+
 import { ganttChartConfig, ganttChartData } from '~/composables/gantt'
 
 const chartData = ref({
-  ...ganttChartData,
+  ...ganttChartData
 })
 const chartConfig = ref(ganttChartConfig)
 const chartKey = ref(0)
 const monthPicker = ref({
   month: new Date().getMonth(),
-  year: new Date().getFullYear(),
+  year: new Date().getFullYear()
 })
 const taskName = ref('')
 const rangePicker = ref()
@@ -20,7 +21,7 @@ const selectedMaxTask = ref('')
 const statusOptions = [
   { value: 'completed', label: 'Completed' },
   { value: 'delayed', label: 'Delayed' },
-  { value: 'pending', label: 'Pending' },
+  { value: 'pending', label: 'Pending' }
 ]
 const showDropdown = ref(false)
 const dropDirection = ref('down')
@@ -30,7 +31,7 @@ const midIndex = computed(() => Math.ceil(chartData.value.datasets[0].data.lengt
 const firstHalf = computed(() => chartData.value.datasets[0].data.slice(0, midIndex.value).map((task: { y: string }) => ({ value: task.y, label: task.y })))
 const secondHalf = computed(() => chartData.value.datasets[0].data.slice(midIndex.value).map((task: { y: string }) => ({ value: task.y, label: task.y })))
 const suggestions = computed<string[]>(() =>
-  Array.from(new Set(chartData.value.datasets[0].data.map((item: { name: string }) => item.name))),
+  Array.from(new Set(chartData.value.datasets[0].data.map((item: { name: string }) => item.name)))
 )
 const filteredSuggestions = ref([...suggestions.value])
 
@@ -94,7 +95,7 @@ const addTask = () => {
     x: [dayjs(rangePicker.value[0]).format('YYYY-MM-DD'), dayjs(rangePicker.value[1]).format('YYYY-MM-DD')],
     y: taskName.value,
     name: userName.value,
-    status: selectedStatus.value,
+    status: selectedStatus.value
   }
   chartData.value.datasets[0].data = [...chartData.value.datasets[0].data, newTask]
   chartKey.value += 1
@@ -112,8 +113,7 @@ const updateDropdownPosition = () => {
 
   if (spaceAbove > spaceBelow) {
     dropDirection.value = 'up'
-  }
-  else {
+  } else {
     dropDirection.value = 'down'
   }
 }
@@ -135,7 +135,7 @@ const handleResize = () => {
 
 const filterSuggestions = () => {
   filteredSuggestions.value = suggestions.value.filter((name: string) =>
-    name.toLowerCase().includes(userName.value.toLowerCase()),
+    name.toLowerCase().includes(userName.value.toLowerCase())
   )
 }
 

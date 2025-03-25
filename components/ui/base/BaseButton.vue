@@ -1,16 +1,16 @@
 <script setup lang="ts">
 interface Props {
-  size?: 'small' | 'medium' | 'large'
-  variant?: 'primary' | 'secondary' | 'text' | 'outline'
-  disabled?: boolean
-  loading?: boolean
-  block?: boolean
-  rounded?: boolean
-  icon?: string
-  iconOnly?: boolean
-  nativeType?: 'button' | 'submit' | 'reset'
-  ariaLabel?: string
-  ripple?: boolean
+  size?: 'small' | 'medium' | 'large',
+  variant?: 'primary' | 'secondary' | 'text' | 'outline',
+  disabled?: boolean,
+  loading?: boolean,
+  block?: boolean,
+  rounded?: boolean,
+  icon?: string,
+  iconOnly?: boolean,
+  nativeType?: 'button' | 'submit' | 'reset',
+  ariaLabel?: string,
+  ripple?: boolean,
 }
 
 const {
@@ -24,11 +24,11 @@ const {
   iconOnly = false,
   nativeType = 'button',
   ariaLabel = '',
-  ripple = true,
+  ripple = true
 } = defineProps<Props>()
 
 const emit = defineEmits<{
-  (e: 'click', event: MouseEvent): void
+  (e: 'click', event: MouseEvent): void,
 }>()
 
 const hovering = ref(false)

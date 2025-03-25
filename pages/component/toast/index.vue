@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { bakeToast } from "~/utils";
+import { bakeToast } from '~/utils'
 
 const bakeSuccessToast = () => {
-  bakeToast.success("Success Toast");
-};
+  bakeToast.success('Success Toast')
+}
 
 const bakeErrorToast = () => {
-  bakeToast.error("Error Toast");
-};
+  bakeToast.error('Error Toast')
+}
 
 const bakeWarningToast = () => {
-  bakeToast.warning("Warning Toast");
-};
+  bakeToast.warning('Warning Toast')
+}
 
 const bakeDefaultToast = () => {
-  bakeToast.default("Default Toast");
-};
+  bakeToast.default('Default Toast')
+}
 </script>
 
 <template>
   <div class="button-container">
-    <button @click="bakeSuccessToast" class="success">SUCCESS</button>
-    <button @click="bakeErrorToast" class="error">ERROR</button>
-    <button @click="bakeWarningToast" class="warning">WARNING</button>
-    <button @click="bakeDefaultToast" class="default">DEFAULT</button>
+    <button class="success" @click="bakeSuccessToast">SUCCESS</button>
+    <button class="error" @click="bakeErrorToast">ERROR</button>
+    <button class="warning" @click="bakeWarningToast">WARNING</button>
+    <button class="default" @click="bakeDefaultToast">DEFAULT</button>
   </div>
 </template>
 

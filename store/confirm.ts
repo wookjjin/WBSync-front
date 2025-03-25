@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia'
 
 export interface Confirm {
-  useHeader?: boolean
-  useExitButton?: boolean
-  title?: string
-  content?: string
-  useFooter?: boolean
-  confirmButtonText?: string
-  cancelButtonText?: string
-  onConfirm?: () => void
-  onCancel?: () => void
+  useHeader?: boolean,
+  useExitButton?: boolean,
+  title?: string,
+  content?: string,
+  useFooter?: boolean,
+  confirmButtonText?: string,
+  cancelButtonText?: string,
+  onConfirm?: () => void,
+  onCancel?: () => void,
 }
 
 export const useConfirmStore = defineStore('confirm', () => {
@@ -24,7 +24,7 @@ export const useConfirmStore = defineStore('confirm', () => {
     confirmButtonText: 'Yes',
     cancelButtonText: 'No',
     onConfirm: undefined as (() => void) | undefined,
-    onCancel: undefined as (() => void) | undefined,
+    onCancel: undefined as (() => void) | undefined
   })
 
   const openConfirm = (newOptions: Partial<typeof options>) => {
@@ -40,6 +40,6 @@ export const useConfirmStore = defineStore('confirm', () => {
     isVisible,
     options,
     openConfirm,
-    closeConfirm,
+    closeConfirm
   }
 })

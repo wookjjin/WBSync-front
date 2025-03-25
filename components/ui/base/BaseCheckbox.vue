@@ -1,10 +1,10 @@
 <script setup lang="ts">
 interface CheckboxProps {
-  label?: string
-  trueValue?: boolean
-  falseValue?: boolean
-  id?: string
-  disabled?: boolean
+  label?: string,
+  trueValue?: boolean,
+  falseValue?: boolean,
+  id?: string,
+  disabled?: boolean,
 }
 
 const {
@@ -12,7 +12,7 @@ const {
   trueValue = true,
   falseValue = false,
   id = useId(),
-  disabled = false,
+  disabled = false
 } = defineProps<CheckboxProps>()
 
 const emit = defineEmits(['change'])
@@ -24,7 +24,7 @@ const checkboxValue = computed({
   },
   set(checked) {
     model.value = checked ? trueValue : falseValue
-  },
+  }
 })
 
 // 체크박스 변경 핸들러

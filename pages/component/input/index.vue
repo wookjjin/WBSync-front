@@ -4,7 +4,7 @@ const input = ref({
   disabledValue: 'Disabled',
   readonlyValue: 'Readonly',
   errorValue: 'Error Message',
-  helperValue: 'Helper Message',
+  helperValue: 'Helper Message'
 })
 </script>
 

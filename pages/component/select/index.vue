@@ -2,22 +2,22 @@
 const options = ref([
   {
     value: 'Vue',
-    label: 'Vue',
+    label: 'Vue'
   },
   {
     value: 'React',
-    label: 'React',
+    label: 'React'
   },
   {
     value: 'Svelte',
-    label: 'Svelte',
-  },
+    label: 'Svelte'
+  }
 ])
 
 const selected = ref({
   value1: '',
   value2: '',
-  value3: '',
+  value3: ''
 })
 </script>
 

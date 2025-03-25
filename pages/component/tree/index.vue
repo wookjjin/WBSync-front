@@ -8,64 +8,64 @@ const oneDimensionalData = ref<TreeNode[]>([
     id: 'P01',
     label: '부모 1',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'P01',
     id: 'C01',
     label: '자식 1',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'C01',
     id: 'C01-1',
     label: '자식 1-1',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'C01',
     id: 'C01-2',
     label: '자식 1-2',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: null,
     id: 'P02',
     label: '부모 2',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'P02',
     id: 'C02',
     label: '자식 2',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'C02',
     id: 'C02-1',
     label: '자식 2-1',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'C02-1',
     id: 'C02-1-1',
     label: '자식 2-1-1',
     checked: false,
-    expanded: true,
+    expanded: true
   },
   {
     parentId: 'C02',
     id: 'C02-2',
     label: '자식 2-2',
     checked: false,
-    expanded: true,
-  },
+    expanded: true
+  }
 ])
 
 const twoDimensionalData = ref<TreeNode[]>([
@@ -92,21 +92,21 @@ const twoDimensionalData = ref<TreeNode[]>([
                 label: '자식 노드 1-1-1',
                 checked: false,
                 expanded: false,
-                children: [],
-              },
-            ],
-          },
-        ],
+                children: []
+              }
+            ]
+          }
+        ]
       },
       {
         id: 4,
         label: '자식 노드 2',
         checked: false,
         expanded: false,
-        children: [],
-      },
-    ],
-  },
+        children: []
+      }
+    ]
+  }
 ])
 </script>
 

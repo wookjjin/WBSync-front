@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 
 export interface Toast {
-  id: number
-  type: 'SUCCESS' | 'ERROR' | 'WARNING' | 'DEFAULT'
-  message: string
+  id: number,
+  type: 'SUCCESS' | 'ERROR' | 'WARNING' | 'DEFAULT',
+  message: string,
 }
 
 export const useToastStore = defineStore('toast', () => {

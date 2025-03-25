@@ -27,8 +27,7 @@ export const useLoadingStore = defineStore('loading', () => {
       timer = setTimeout(() => {
         isLoading.value = false
       }, displayTime)
-    }
-    else {
+    } else {
       isLoading.value = false
     }
   }

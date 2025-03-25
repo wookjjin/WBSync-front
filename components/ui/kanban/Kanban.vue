@@ -1,21 +1,21 @@
 <script setup lang="ts">
 export interface KanbanColumn<T = Record<string, any>> {
-  key: keyof T
-  title: string
-  editable?: boolean
+  key: keyof T,
+  title: string,
+  editable?: boolean,
 }
 
 export interface KanbanTask {
-  [key: string]: any
+  [key: string]: any,
 }
 
 export interface KanbanProps {
-  useAddGroup?: boolean
-  addGroupButtonName?: string
-  newGroupName?: string
-  useAddTask?: boolean
-  addTaskButtonName?: string
-  newTaskName?: string
+  useAddGroup?: boolean,
+  addGroupButtonName?: string,
+  newGroupName?: string,
+  useAddTask?: boolean,
+  addTaskButtonName?: string,
+  newTaskName?: string,
 }
 
 /* ---------------- Kanban Properties ------------------- */
@@ -25,15 +25,15 @@ const {
   newGroupName = 'New Group',
   useAddTask = false,
   addTaskButtonName = '+ Add Task',
-  newTaskName = 'New Task',
+  newTaskName = 'New Task'
 } = defineProps<KanbanProps>()
 
 const emits = defineEmits<{
-  (event: 'dragEnd', columns: KanbanColumn[], tasks: KanbanTask[]): void
-  (event: 'columnDetailEvent', columns: KanbanColumn): void
-  (event: 'columnRemoveEvent', columns: KanbanColumn): void
-  (event: 'taskClickEvent', task: KanbanTask): void
-  (event: 'taskRemoveEvent', task: KanbanTask): void
+  (event: 'dragEnd', columns: KanbanColumn[], tasks: KanbanTask[]): void,
+  (event: 'columnDetailEvent', columns: KanbanColumn): void,
+  (event: 'columnRemoveEvent', columns: KanbanColumn): void,
+  (event: 'taskClickEvent', task: KanbanTask): void,
+  (event: 'taskRemoveEvent', task: KanbanTask): void,
 }>()
 
 /* ---------------- Model Value ------------------- */
@@ -41,10 +41,10 @@ const columns = defineModel<KanbanColumn[]>('columns', {
   default: [
     {
       key: 'DEFAULT',
-      title: 'COLUMN MODEL VALUE REQUIRED',
-    },
+      title: 'COLUMN MODEL VALUE REQUIRED'
+    }
   ],
-  required: true,
+  required: true
 })
 const tasks = defineModel<KanbanTask[]>('tasks', { default: [] })
 const tasksByColumn = computed<Record<string, KanbanTask[]>>(() => {
@@ -68,7 +68,7 @@ const addColumn = () => {
   const newKey = `Group-${columns.value.length + 1}`
   columns.value.push({
     key: newKey,
-    title: `${newGroupName} ${columns.value.length + 1}`,
+    title: `${newGroupName} ${columns.value.length + 1}`
   })
 }
 
@@ -77,7 +77,7 @@ const addTask = (column: KanbanColumn) => {
   const newTask: KanbanTask = {
     id: `${Date.now()}`,
     key: column.key,
-    title: `${newTaskName} ${column.key} - ${taskCount}`,
+    title: `${newTaskName} ${column.key} - ${taskCount}`
   }
   tasks.value.push(newTask)
 }
@@ -156,12 +156,10 @@ const onTaskDrop = () => {
     const dropIndex = tasks.value.findIndex(t => t.id === dropTaskId.value)
     if (dropIndex !== -1) {
       tasks.value.splice(dropIndex + 1, 0, movedTask) // dropTaskId 다음 위치에 추가
-    }
-    else {
+    } else {
       tasks.value.push(movedTask) // ID 가 없으면 끝에 추가
     }
-  }
-  else {
+  } else {
     // 해당 Column 에 Task 가 하나도 없는 경우도 정상 처리
     tasks.value.push(movedTask)
   }

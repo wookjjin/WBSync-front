@@ -1,10 +1,10 @@
 <script setup lang="ts">
 interface MenuItem {
-  id: number
-  label: string
-  parentId: number | null
-  path: string
-  children?: MenuItem[]
+  id: number,
+  label: string,
+  parentId: number | null,
+  path: string,
+  children?: MenuItem[],
 }
 
 const {
@@ -13,10 +13,10 @@ const {
     label: '',
     parentId: '',
     path: '',
-    children: [],
-  },
+    children: []
+  }
 } = defineProps<{
-  item: MenuItem
+  item: MenuItem,
 }>()
 
 const router = useRouter()
