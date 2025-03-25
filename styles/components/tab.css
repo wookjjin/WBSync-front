@@ -1,0 +1,50 @@
+.tabs-container {
+  width: 100%;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--light-green);
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-header::-webkit-scrollbar {
+  display: none;
+  /* 크롬, 사파리에서 스크롤바 숨기기 */
+}
+
+.tab-content {
+  margin: 60px 20px;
+}
+
+/* tab panel */
+.tab-panel {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 14px;
+    flex-grow: 1;
+  }
+}
