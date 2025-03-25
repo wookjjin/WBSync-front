@@ -1,21 +1,21 @@
 <script setup lang="ts">
 interface Option {
-  value: string | number
-  label: string
-  disabled?: boolean
+  value: string | number,
+  label: string,
+  disabled?: boolean,
 }
 
 const {
   disabled = false,
-  error = false,
+  error = false
 } = defineProps<{
-  options: Option[]
-  disabled?: boolean
-  error?: boolean
+  options: Option[],
+  disabled?: boolean,
+  error?: boolean,
 }>()
 
 const emit = defineEmits<{
-  (e: 'change', value: string | number): void
+  (e: 'change', value: string | number): void,
 }>()
 
 const model = defineModel()

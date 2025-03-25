@@ -15,7 +15,7 @@ const openConfirmOverlay = () => {
     },
     onCancel: () => {
       console.log('취소 클릭')
-    },
+    }
   })
 }
 
@@ -23,8 +23,7 @@ const getUserDetail = async () => {
   try {
     const response = await request.get('/user-detail')
     return response.data.result
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error)
     throw error
   }
@@ -34,7 +33,7 @@ const getUserData = () => {
   return {
     userName: user.value.userName,
     age: user.value.age,
-    address: user.value.address,
+    address: user.value.address
   }
 }
 
@@ -42,8 +41,7 @@ const saveUserInfo = async (data: { userName: string, age: number, address: stri
   try {
     const response = await request.post('/user', data)
     return response
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error)
     throw error
   }
@@ -54,8 +52,7 @@ const openPopOverlay = async () => {
     const userData = await getUserDetail()
     user.value = userData
     isShow.value = true
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error)
   }
 }
@@ -67,8 +64,7 @@ const handleConfrim = async () => {
     console.log(response)
 
     isShow.value = false
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error)
   }
 }

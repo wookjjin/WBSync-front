@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import type { lineChartData, lineChartOptions } from '~/composables/chart'
 import {
   CategoryScale,
   Chart as ChartJS,
   Legend,
-  LinearScale,
   LineElement,
+  LinearScale,
   PointElement,
   Title,
-  Tooltip,
+  Tooltip
 } from 'chart.js'
 import { Line } from 'vue-chartjs'
 
+import type { lineChartData, lineChartOptions } from '~/composables/chart'
+
 defineProps<{
-  data: typeof lineChartData
-  options: typeof lineChartOptions
+  data: typeof lineChartData,
+  options: typeof lineChartOptions,
 }>()
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)

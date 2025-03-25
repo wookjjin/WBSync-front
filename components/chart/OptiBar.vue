@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { barChartData, barChartOptions } from '~/composables/chart'
 import {
   BarElement,
   CategoryScale,
@@ -7,13 +6,15 @@ import {
   Legend,
   LinearScale,
   Title,
-  Tooltip,
+  Tooltip
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
 
+import type { barChartData, barChartOptions } from '~/composables/chart'
+
 defineProps<{
-  data: typeof barChartData
-  options: typeof barChartOptions
+  data: typeof barChartData,
+  options: typeof barChartOptions,
 }>()
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)

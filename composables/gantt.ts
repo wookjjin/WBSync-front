@@ -5,7 +5,7 @@ type TStatus = Record<'delayed' | 'pending' | 'completed', string>
 const colors: TStatus = {
   delayed: 'rgba(255, 26, 104, 1)',
   pending: 'rgba(255, 159, 64, 1)',
-  completed: 'rgba(75, 192, 192, 1)',
+  completed: 'rgba(75, 192, 192, 1)'
 } as const
 
 type TGanttChartData = {
@@ -27,7 +27,7 @@ export const ganttChartData: ChartData<any> = {
       { x: ['2025-03-18', '2025-03-30'], y: 'Task 6', name: 'Santiago', status: 'pending' },
       { x: ['2025-04-02', '2025-05-01'], y: 'Task 7', name: 'Lily', status: 'pending' },
       { x: ['2025-04-18', '2025-05-14'], y: 'Task 8', name: 'David', status: 'pending' },
-      { x: ['2025-04-28', '2025-05-25'], y: 'Task 9', name: 'Santiago', status: 'pending' },
+      { x: ['2025-04-28', '2025-05-25'], y: 'Task 9', name: 'Santiago', status: 'pending' }
     ],
     backgroundColor: (ctx: ScriptableContext<'bar'>) => {
       const dataPoint = ctx.raw as TGanttChartData
@@ -35,8 +35,8 @@ export const ganttChartData: ChartData<any> = {
     },
     borderSkipped: false,
     borderRadius: 10,
-    barPercentage: 0.5,
-  }],
+    barPercentage: 0.5
+  }]
 }
 
 /**
@@ -58,7 +58,7 @@ const todayLine: any = {
       ctx,
       data,
       chartArea: { top, bottom, left, right },
-      scales: { x, y },
+      scales: { x, y }
     } = chart
     ctx.save()
 
@@ -90,7 +90,7 @@ const todayLine: any = {
     ctx.textAlign = 'center'
     ctx.fillText('Today', x.getPixelForValue(new Date().getTime()), bottom + 12)
     ctx.restore()
-  },
+  }
 }
 
 /**
@@ -103,7 +103,7 @@ const assignedTasks = {
       ctx,
       data,
       chartArea: { top, bottom, left, right },
-      scales: { x, y },
+      scales: { x, y }
     } = chart
     ctx.save()
     ctx.font = 'bolder 12px sans-serif'
@@ -115,7 +115,7 @@ const assignedTasks = {
     })
     ctx.fillText('Names', 10, top - 15)
     ctx.restore()
-  },
+  }
 }
 
 /**
@@ -129,13 +129,13 @@ const status = {
       data,
       options,
       chartArea: { top, bottom, left, right },
-      scales: { x, y },
+      scales: { x, y }
     } = chart
 
     const icons: TStatus = {
       delayed: '\uF00D',
       pending: '\uF110',
-      completed: '\uF00C',
+      completed: '\uF00C'
     } as const
     const angle = Math.PI / 180
     const padding = options.layout?.padding
@@ -163,7 +163,7 @@ const status = {
     ctx.fillStyle = 'black'
     ctx.fillText('Status', right + (paddingRight / 2), top - 15)
     ctx.restore()
-  },
+  }
 }
 
 /**
@@ -175,7 +175,7 @@ const weekend = {
     const {
       ctx,
       chartArea: { top, bottom, left, right, width, height },
-      scales: { x, y },
+      scales: { x, y }
     } = chart
 
     ctx.save()
@@ -188,11 +188,11 @@ const weekend = {
           x.getPixelForValue(tick.value),
           top,
           x.getPixelForValue(new Date(tick.value).setHours(24)) - x.getPixelForValue(tick.value),
-          height,
+          height
         )
       }
     })
-  },
+  }
 }
 
 export const ganttChartConfig: ChartConfiguration<'bar'> = {
@@ -206,8 +206,8 @@ export const ganttChartConfig: ChartConfiguration<'bar'> = {
       padding: {
         left: 100,
         right: 100,
-        bottom: 20,
-      },
+        bottom: 20
+      }
     },
     scales: {
       x: {
@@ -215,21 +215,21 @@ export const ganttChartConfig: ChartConfiguration<'bar'> = {
         type: 'time',
         time: {
           displayFormats: {
-            day: 'd',
-          },
+            day: 'd'
+          }
         },
         min: '2025-03-01',
-        max: '2025-03-31',
+        max: '2025-03-31'
       },
       y: {
         min: 0,
         max: 9,
-        labels: labelFilter as string[],
-      },
+        labels: labelFilter as string[]
+      }
     },
     plugins: {
       legend: {
-        display: false,
+        display: false
       },
       tooltip: {
         displayColors: false,
@@ -246,25 +246,25 @@ export const ganttChartConfig: ChartConfiguration<'bar'> = {
               year: 'numeric',
               month: 'short',
               day: 'numeric',
-              hour12: true,
+              hour12: true
             })
             const formattedEndDate = endDate.toLocaleString([], {
               year: 'numeric',
               month: 'short',
               day: 'numeric',
-              hour12: true,
+              hour12: true
             })
 
             return [rawData.name, `Task Deadline: ${formattedStartDate} - ${formattedEndDate}`]
-          },
-        },
-      },
-    },
+          }
+        }
+      }
+    }
   },
   plugins: [
     todayLine,
     assignedTasks,
     status,
-    weekend,
-  ],
+    weekend
+  ]
 }

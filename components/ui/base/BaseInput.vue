@@ -1,15 +1,15 @@
 <script setup lang="ts">
 export interface Props {
-  type: 'text' | 'password'
-  label?: string
-  placeholder?: string
-  required?: false
-  disabled?: boolean
-  minlength?: string
-  maxlength?: string
-  readonly?: boolean
-  errorMessage?: string
-  helperText?: string
+  type: 'text' | 'password',
+  label?: string,
+  placeholder?: string,
+  required?: false,
+  disabled?: boolean,
+  minlength?: string,
+  maxlength?: string,
+  readonly?: boolean,
+  errorMessage?: string,
+  helperText?: string,
 }
 
 const {
@@ -21,13 +21,13 @@ const {
   maxlength = undefined,
   readonly = false,
   errorMessage = '',
-  helperText = '',
+  helperText = ''
 } = defineProps<Props>()
 
 const emit = defineEmits<{
-  (event: 'focus', eventDetail: FocusEvent): void
-  (event: 'blur', eventDetail: FocusEvent): void
-  (event: 'input', eventDetail: Event): void
+  (event: 'focus', eventDetail: FocusEvent): void,
+  (event: 'blur', eventDetail: FocusEvent): void,
+  (event: 'input', eventDetail: Event): void,
 }>()
 
 const model = defineModel({ default: '' })

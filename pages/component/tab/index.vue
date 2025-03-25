@@ -10,7 +10,7 @@ const tabs = [
   { title: '탭 4', id: 'tab4', content: '네 번째 탭' },
   { title: '탭 5', id: 'tab5', content: '다섯 번째 탭' },
   { title: '탭 6', id: 'tab6', content: '여섯 번째 탭' },
-  { title: '탭 7', id: 'tab7', content: '여섯 번째 탭' },
+  { title: '탭 7', id: 'tab7', content: '여섯 번째 탭' }
 ]
 </script>
 

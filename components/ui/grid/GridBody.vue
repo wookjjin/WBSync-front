@@ -1,28 +1,28 @@
 <script setup lang="ts">
 export interface Column<T = Record<string, any>> {
-  key: keyof T | string
-  label: string
-  visible?: boolean
-  align?: 'left' | 'center' | 'right'
-  sortable?: boolean
+  key: keyof T | string,
+  label: string,
+  visible?: boolean,
+  align?: 'left' | 'center' | 'right',
+  sortable?: boolean,
 }
 
 const {
   columns = [],
   rows = [],
-  useCheckbox = false,
+  useCheckbox = false
 } = defineProps<{
-  columns: Column<any>[]
-  rows: any[]
-  useCheckbox?: boolean
+  columns: Column<any>[],
+  rows: any[],
+  useCheckbox?: boolean,
 }>()
 
 const emits = defineEmits<{
-  (event: 'columnClickEvent', column: Column): void
-  <T>(event: 'rowClickEvent', row: T): void
+  (event: 'columnClickEvent', column: Column): void,
+  <T>(event: 'rowClickEvent', row: T): void,
   (event: 'sortChangeEvent',
-    columnKey: string, direction: 'asc' | 'desc' | 'default'): void
-  <T>(event: 'update:selectedRows', selectedRows: T[]): void
+    columnKey: string, direction: 'asc' | 'desc' | 'default'): void,
+  <T>(event: 'update:selectedRows', selectedRows: T[]): void,
 }>()
 
 const selectedRows = ref<any[]>([])
@@ -30,7 +30,7 @@ const selectedRows = ref<any[]>([])
 const visibleColumns = computed<Column<any>[]>(() => {
   const cols = columns.map(column => ({
     ...column,
-    align: column.align ?? 'left',
+    align: column.align ?? 'left'
   }))
 
   return useCheckbox
@@ -40,7 +40,7 @@ const visibleColumns = computed<Column<any>[]>(() => {
 
 const activeSort = ref<{ key: string, direction: 'asc' | 'desc' | 'default' }>({
   key: '',
-  direction: 'default',
+  direction: 'default'
 })
 
 const isAllChecked = computed(() => {
@@ -56,8 +56,7 @@ const isIndeterminate = computed(() => {
 const toggleAllSelection = () => {
   if (isAllChecked.value) {
     selectedRows.value = []
-  }
-  else {
+  } else {
     selectedRows.value = [...rows]
   }
   emits('update:selectedRows', selectedRows.value)
@@ -67,8 +66,7 @@ const toggleRowSelection = (row: Record<string, any>) => {
   const index = selectedRows.value.findIndex(selectedRow => selectedRow === row)
   if (index > -1) {
     selectedRows.value.splice(index, 1)
-  }
-  else {
+  } else {
     selectedRows.value.push(row)
   }
   emits('update:selectedRows', selectedRows.value)
@@ -85,15 +83,12 @@ const sortColumnEvent = (column: Column) => {
   if (activeSort.value.key === column.key) {
     if (activeSort.value.direction === 'asc') {
       activeSort.value.direction = 'desc'
-    }
-    else if (activeSort.value.direction === 'desc') {
+    } else if (activeSort.value.direction === 'desc') {
       activeSort.value.direction = 'default'
-    }
-    else {
+    } else {
       activeSort.value.direction = 'asc'
     }
-  }
-  else {
+  } else {
     activeSort.value.key = column.key as string
     activeSort.value.direction = 'asc'
   }

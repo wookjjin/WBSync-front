@@ -8,14 +8,14 @@ import {
   LinearScale,
   TimeScale,
   Title,
-  Tooltip,
+  Tooltip
 } from 'chart.js'
 import { Bar } from 'vue-chartjs'
 import 'chartjs-adapter-date-fns'
 
 defineProps<{
-  data: typeof ganttChartData;
-  config: typeof ganttChartConfig;
+  data: typeof ganttChartData,
+  config: typeof ganttChartConfig,
 }>()
 
 ChartJS.register(Title, Tooltip, TimeScale, Legend, BarElement, CategoryScale, LinearScale)

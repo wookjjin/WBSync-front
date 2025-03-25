@@ -1,17 +1,17 @@
 <script setup lang="ts">
 export interface TreeNode {
-  parentId?: number | string | null
-  id: number | string
-  label: string
-  checked: boolean
-  expanded?: boolean
-  children?: TreeNode[]
+  parentId?: number | string | null,
+  id: number | string,
+  label: string,
+  checked: boolean,
+  expanded?: boolean,
+  children?: TreeNode[],
 }
 
 const {
-  showCheckbox = true,
+  showCheckbox = true
 } = defineProps<{
-  showCheckbox?: boolean
+  showCheckbox?: boolean,
 }>()
 
 // defineModel을 사용하여 부모로부터 트리 데이터를 받아옴
@@ -30,8 +30,7 @@ const toggleCheckbox = (node: TreeNode, checked: boolean) => {
 const toggleNode = (node: TreeNode) => {
   if (node.children?.length) {
     node.expanded = !node.expanded
-  }
-  else {
+  } else {
     node.checked = !node.checked
     toggleCheckbox(node, node.checked)
   }
@@ -47,8 +46,7 @@ const convertTreeData = (treeNodes: TreeNode[]) => {
   treeNodes.forEach((node) => {
     if (node.parentId !== null && node.parentId !== undefined && nodeMap.has(node.parentId)) {
       nodeMap.get(node.parentId)!.children!.push(node)
-    }
-    else {
+    } else {
       tree.push(node)
     }
   })

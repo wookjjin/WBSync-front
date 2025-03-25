@@ -9,18 +9,18 @@ const {
   repeat = 1,
   animation = 'pulse',
   gap = '0.5rem',
-  className = '',
+  className = ''
 } = defineProps<{
-  text?: boolean // 텍스트 스켈레톤 여부
-  size?: 'small' | 'medium' | 'large' // 스켈레톤 크기
-  width?: string // 너비
-  height?: string // 높이
-  isRound?: boolean // 둥근 모서리 여부
-  circle?: boolean // 원형 여부
-  repeat?: number // 반복 횟수
-  animation?: 'pulse' | 'wave' | 'none' // 애니메이션 종류
-  gap?: string // 반복 요소 간격
-  className?: string // 추가 클래스
+  text?: boolean, // 텍스트 스켈레톤 여부
+  size?: 'small' | 'medium' | 'large', // 스켈레톤 크기
+  width?: string, // 너비
+  height?: string, // 높이
+  isRound?: boolean, // 둥근 모서리 여부
+  circle?: boolean, // 원형 여부
+  repeat?: number, // 반복 횟수
+  animation?: 'pulse' | 'wave' | 'none', // 애니메이션 종류
+  gap?: string, // 반복 요소 간격
+  className?: string, // 추가 클래스
 }>()
 
 // size에 따른 실제 높이 값을 계산
@@ -32,8 +32,7 @@ const getHeight = (size: string, isText: boolean): string => {
       case 'large': return '1.25rem'
       default: return '1rem'
     }
-  }
-  else {
+  } else {
     return height
   }
 }

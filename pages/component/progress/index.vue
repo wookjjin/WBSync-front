@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
+
 import Progress from '~/components/ui/progress/Progress.vue'
 import { fetchWithLoading } from '~/utils'
 

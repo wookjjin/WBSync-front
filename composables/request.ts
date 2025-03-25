@@ -12,7 +12,7 @@ const baseURL: string = import.meta.env.VITE_API_CONTEXT_PATH || 'http://localho
 
 const instance = axios.create({
   baseURL,
-  headers: { },
+  headers: { }
 })
 
 instance.interceptors.request.use(
@@ -22,7 +22,7 @@ instance.interceptors.request.use(
 
   (error) => {
     return Promise.reject(error)
-  },
+  }
 )
 
 instance.interceptors.response.use(
@@ -32,7 +32,7 @@ instance.interceptors.response.use(
 
   (error) => {
     return Promise.reject(error)
-  },
+  }
 )
 
 export default instance

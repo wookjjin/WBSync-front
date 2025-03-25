@@ -2,8 +2,8 @@
 import type { SelectOption } from '../base/BaseSelect.vue'
 
 export type LimitOption<T> = T extends {
-  label: string
-  value: string | number
+  label: string,
+  value: string | number,
 }
   ? { label: string, value: string | number }
   : { cmmCdv: string, cmmCdvNm: string }
@@ -14,27 +14,27 @@ const {
   limitOptions = [
     { label: '10개씩 보기', value: 10 },
     { label: '30개씩 보기', value: 30 },
-    { label: '50개씩 보기', value: 50 },
+    { label: '50개씩 보기', value: 50 }
   ],
-  useLimitList = false,
+  useLimitList = false
 }
   = defineProps<{
-    totalCount: number
-    pageVisibleCount?: number
-    limitOptions?: LimitOption<any>[]
-    useLimitList?: boolean
+    totalCount: number,
+    pageVisibleCount?: number,
+    limitOptions?: LimitOption<any>[],
+    useLimitList?: boolean,
   }>()
 
 const emits = defineEmits<{
-  (event: 'pageChangeEvent', page: number): void
-  (event: 'limitChangeEvent', limit: string | number): void
+  (event: 'pageChangeEvent', page: number): void,
+  (event: 'limitChangeEvent', limit: string | number): void,
 }>()
 
 const currentPage = defineModel('currentPage', {
-  default: 1,
+  default: 1
 })
 const currentPageLimit = defineModel('currentPageLimit', {
-  default: 10,
+  default: 10
 })
 
 const totalPageCount = computed(() => Math.ceil(totalCount / currentPageLimit.value))

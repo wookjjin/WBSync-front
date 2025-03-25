@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 interface Props {
-  title?: string
-  showClose?: boolean
-  showHeader?: boolean
-  showFooter?: boolean
-  confirmText?: string
-  cancelText?: string
-  closeOnOverlayClick?: boolean
-  width?: string
-  height?: string
+  title?: string,
+  showClose?: boolean,
+  showHeader?: boolean,
+  showFooter?: boolean,
+  confirmText?: string,
+  cancelText?: string,
+  closeOnOverlayClick?: boolean,
+  width?: string,
+  height?: string,
 }
 const {
   title = 'PopOverlay',
@@ -19,13 +19,13 @@ const {
   cancelText = '취소',
   closeOnOverlayClick = true,
   width = '500px',
-  height = '450px',
+  height = '450px'
 } = defineProps<Props>()
 
 const emit = defineEmits(['confirm', 'cancel', 'close'])
 
 const isShow = defineModel('isShow', {
-  default: false,
+  default: false
 })
 
 const close = () => {

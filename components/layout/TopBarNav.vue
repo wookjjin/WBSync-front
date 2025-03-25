@@ -2,11 +2,11 @@
 import { computed, ref } from 'vue'
 
 interface MenuItem {
-  id: number
-  label: string
-  parentId: number | null
-  path: string
-  children?: MenuItem[]
+  id: number,
+  label: string,
+  parentId: number | null,
+  path: string,
+  children?: MenuItem[],
 }
 
 const flatMenu = ref<MenuItem[]>([
@@ -14,7 +14,7 @@ const flatMenu = ref<MenuItem[]>([
   { id: 2, label: 'Products', path: '/product', parentId: null },
   { id: 3, label: 'Laptops', path: '/laptops', parentId: 2 },
   { id: 4, label: 'Phones', path: '/phones', parentId: 2 },
-  { id: 5, label: 'Contact', path: '/contact', parentId: null },
+  { id: 5, label: 'Contact', path: '/contact', parentId: null }
 ])
 
 const buildTree = (menu: MenuItem[]): MenuItem[] => {
@@ -28,8 +28,7 @@ const buildTree = (menu: MenuItem[]): MenuItem[] => {
   menu.forEach((item) => {
     if (item.parentId !== null && map.has(item.parentId)) {
       map.get(item.parentId)!.children!.push(map.get(item.id)!)
-    }
-    else {
+    } else {
       roots.push(map.get(item.id)!)
     }
   })

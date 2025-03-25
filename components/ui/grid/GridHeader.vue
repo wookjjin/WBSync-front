@@ -6,10 +6,10 @@ export type TotalLabel = string
 
 const {
   totalCount = 0,
-  totalLabel = 'Total',
+  totalLabel = 'Total'
 } = defineProps<{
-  totalCount?: TotalCount
-  totalLabel?: TotalLabel
+  totalCount?: TotalCount,
+  totalLabel?: TotalLabel,
 }>()
 </script>
 
