@@ -20,7 +20,7 @@ const goSignUp = () => {
           <BaseInput v-model="id" type="text" label="아이디" placeholder="아이디를 입력해주세요." />
         </div>
         <div class="sign-in-row">
-          <BaseInput v-model="password" type="text" label="비밀번호" placeholder="비밀번호를 입력해주세요." />
+          <BaseInput v-model="password" type="password" label="비밀번호" placeholder="비밀번호를 입력해주세요." />
         </div>
       </div>
       <div class="sign-in-footer flex flex-col gap-3 mt-4 items-center">

@@ -25,8 +25,7 @@ const {
 } = defineProps<Props>()
 
 const emit = defineEmits<{
-  (event: 'focus', eventDetail: FocusEvent): void,
-  (event: 'blur', eventDetail: FocusEvent): void,
+  (event: 'focus' | 'blur', eventDetail: FocusEvent): void,
   (event: 'input', eventDetail: Event): void,
 }>()
 

@@ -13,6 +13,9 @@ export default defineNuxtConfig({
       pathPrefix: false
     }
   ],
+  typescript: {
+    typeCheck: true
+  },
   devtools: { enabled: false },
   css: ['~/styles/main.css'],
   build: {
