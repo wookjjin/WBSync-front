@@ -1,7 +1,6 @@
 <script setup lang='ts'>
 import axios from 'axios'
 import type { IUser } from '~/types/auth'
-import { bakeToast } from '~/utils'
 
 const router = useRouter()
 
@@ -30,10 +29,16 @@ const getPostData = () => {
   }
 }
 
+const goSignIn = () => {
+  router.push('/auth/sign-in')
+}
+
+
 const postUserAPI = async (data: IUser) => {
   try {
     const result = await request.post('/auth/sign-up', data)
     bakeToast.success('회원가입에 성공했어요. 로그인 해주세요.')
+    goSignIn()
     return result
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -43,14 +48,9 @@ const postUserAPI = async (data: IUser) => {
   }
 }
 
-const goSignIn = () => {
-  router.push('/auth/sign-in')
-}
-
 const createUser = async () => {
   const data = getPostData()
   await postUserAPI(data)
-  goSignIn()
 }
 
 </script>
