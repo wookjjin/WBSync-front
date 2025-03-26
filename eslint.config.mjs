@@ -13,6 +13,8 @@ export default withNuxt(
           order: ['script', 'template', 'style']
         }
       ],
+      'vue/no-required-prop-with-default': 'off',
+      'vue/require-prop-types': 'off',
       'vue/no-multiple-template-root': 'off',
       'vue/max-attributes-per-line': 'off',
       'vue/html-indent': ['error', 2, {
