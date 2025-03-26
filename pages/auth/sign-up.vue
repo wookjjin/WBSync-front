@@ -1,5 +1,7 @@
 <script setup lang='ts'>
+import axios from 'axios'
 import type { IUser } from '~/types/auth'
+import { bakeToast } from '~/utils'
 
 const router = useRouter()
 
@@ -21,6 +23,7 @@ const getPostData = () => {
     id: signUp.value.id,
     email: signUp.value.email,
     password: signUp.value.password,
+    recheckPassword: signUp.value.recheckPassword,
     name: signUp.value.name,
     rank: signUp.value.rank,
     phoneNumber: signUp.value.phoneNumber
@@ -29,22 +32,27 @@ const getPostData = () => {
 
 const postUserAPI = async (data: IUser) => {
   try {
-    const result = await request.post('/user', data)
+    const result = await request.post('/auth/sign-up', data)
+    bakeToast.success('회원가입에 성공했어요. 로그인 해주세요.')
     return result
   } catch (error) {
-    console.error(error)
+    if (axios.isAxiosError(error)) {
+      console.error(error)
+      bakeToast.error(error.response?.data.message)
+    }
   }
-}
-
-const createUser = async () => {
-  const data = getPostData()
-  const result = await postUserAPI(data)
-  console.log(result)
 }
 
 const goSignIn = () => {
   router.push('/auth/sign-in')
 }
+
+const createUser = async () => {
+  const data = getPostData()
+  await postUserAPI(data)
+  goSignIn()
+}
+
 </script>
 
 <template>
@@ -60,10 +68,11 @@ const goSignIn = () => {
             <BaseInput v-model="signUp.id" type="text" label="아이디" placeholder="아이디를 입력해주세요." />
           </div>
           <div class="sign-in-row">
-            <BaseInput v-model="signUp.password" type="text" label="비밀번호" placeholder="비밀번호를 입력해주세요." />
+            <BaseInput v-model="signUp.password" type="password" label="비밀번호" placeholder="특수문자 포함 8~16자로 설정해주세요." />
           </div>
           <div class="sign-in-row">
-            <BaseInput v-model="signUp.recheckPassword" type="text" label="비밀번호 재확인" placeholder="비밀번호 재확인 해주세요." />
+            <BaseInput v-model="signUp.recheckPassword" type="password" label="비밀번호 재확인"
+              placeholder="비밀번호를 재확인 해주세요." />
           </div>
         </div>
         <div>
@@ -72,10 +81,10 @@ const goSignIn = () => {
             <BaseInput v-model="signUp.name" type="text" label="이름" placeholder="이름을 입력해주세요." />
           </div>
           <div class="sign-in-row">
-            <BaseInput v-model="signUp.email" type="text" label="이메일 주소" placeholder="이메일 주소를 입력해주세요." />
+            <BaseInput v-model="signUp.email" type="text" label="이메일 주소" placeholder="이메일을 입력해주세요." />
           </div>
           <div class="sign-in-row">
-            <BaseInput v-model="signUp.phoneNumber" type="text" label="비상연락망" placeholder="비상연락망을 입력해주세요." />
+            <BaseInput v-model="signUp.phoneNumber" type="text" label="비상연락망" placeholder="비상연락망을 입력해주세요. (-) 제외" />
           </div>
         </div>
       </div>
@@ -85,11 +94,9 @@ const goSignIn = () => {
         </BaseButton>
         <BaseButton class="w-full" variant="secondary" @click="goSignIn">
           <div class="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="size-6 mr-2">
-              <path
-                stroke-linecap="round" stroke-linejoin="round"
+              <path stroke-linecap="round" stroke-linejoin="round"
                 d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
             </svg>
             <span>
