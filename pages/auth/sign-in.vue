@@ -24,6 +24,7 @@ const goMainPage = () => {
 const signInAPI = async (data: { id: string, password: string }) => {
   try {
     const result = await request.post('/auth/sign-in', data)
+    localStorage.setItem('token', result.data.accessToken)
     bakeToast.success('로그인에 성공했어요!')
     goMainPage()
     return result
@@ -49,10 +50,11 @@ const signInEvent = async () => {
       </div>
       <div class="sign-in-body">
         <div class="sign-in-row">
-          <BaseInput v-model="id" type="text" label="아이디" placeholder="아이디를 입력해주세요." />
+          <BaseInput v-model="id" type="text" label="아이디" placeholder="아이디를 입력해주세요." @keyup.enter="signInEvent" />
         </div>
         <div class="sign-in-row">
-          <BaseInput v-model="password" type="password" label="비밀번호" placeholder="비밀번호를 입력해주세요." />
+          <BaseInput v-model="password" type="password" label="비밀번호" placeholder="비밀번호를 입력해주세요."
+            @keyup.enter="signInEvent" />
         </div>
       </div>
       <div class="sign-in-footer flex flex-col gap-3 mt-4 items-center">
@@ -78,7 +80,7 @@ const signInEvent = async () => {
             </svg>
           </div>
         </BaseButton>
-        <BaseButton class="w-full" variant="secondary">
+        <!-- <BaseButton class="w-full" variant="secondary">
           <div class="flex items-center justify-center">
             <span class="mr-2">비밀번호를 잊어버렸어요</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -91,7 +93,7 @@ const signInEvent = async () => {
         </BaseButton>
         <BaseButton class="w-full" variant="secondary">
           비밀번호를 변경할래요
-        </BaseButton>
+        </BaseButton> -->
       </div>
     </div>
   </div>
