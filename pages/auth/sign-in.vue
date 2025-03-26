@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+import axios from 'axios'
+
 const router = useRouter()
 
 const id = ref<string>('')
@@ -6,6 +8,36 @@ const password = ref<string>('')
 
 const goSignUp = () => {
   router.push('/auth/sign-up')
+}
+
+const getPostData = () => {
+  return {
+    id: id.value,
+    password: password.value
+  }
+}
+
+const goMainPage = () => {
+  router.push('/')
+}
+
+const signInAPI = async (data: { id: string, password: string }) => {
+  try {
+    const result = await request.post('/auth/sign-in', data)
+    bakeToast.success('로그인에 성공했어요!')
+    goMainPage()
+    return result
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error(error)
+      bakeToast.error(error.response?.data.message)
+    }
+  }
+}
+
+const signInEvent = async () => {
+  const data = getPostData()
+  await signInAPI(data)
 }
 </script>
 
@@ -25,7 +57,7 @@ const goSignUp = () => {
       </div>
       <div class="sign-in-footer flex flex-col gap-3 mt-4 items-center">
         <BaseButton class="w-full" variant="primary">
-          <div class="flex items-center justify-center">
+          <div class="flex items-center justify-center" @click="signInEvent">
             <span class="mr-2">
               로그인 시도
             </span>
