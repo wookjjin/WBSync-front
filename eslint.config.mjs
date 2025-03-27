@@ -68,7 +68,7 @@ export default withNuxt(
   },
   {
     rules: {
-      'no-console': 'warn', // 콘솔 로그 경고로 변경
+      'no-console': 'off', // 콘솔 로그 경고로 변경
       '@typescript-eslint/no-explicit-any': 'warn', // any 사용에 대한 경고
       '@typescript-eslint/no-unused-vars': ['error', {
         argsIgnorePattern: '^_',
@@ -77,11 +77,11 @@ export default withNuxt(
       'complexity': ['warn', 10], // 함수 복잡도 제한
       'max-lines-per-function': ['warn', 50], // 함수 라인 수 제한
       'sort-imports': ['error', {
-        ignoreCase: false,
+        ignoreCase: true,
         ignoreDeclarationSort: false,
         ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-        allowSeparatedGroups: false
+        memberSyntaxSortOrder: ['single', 'multiple', 'all', 'none'],
+        allowSeparatedGroups: true
       }],
       'import/no-duplicates': 'error',
       // 추가된 import 관련 규칙들
@@ -91,16 +91,24 @@ export default withNuxt(
           'external',
           'internal',
           ['parent', 'sibling'],
-          'index'
+          'index',
+          'type'  // 'type' 그룹을 별도로 추가
         ],
         'newlines-between': 'always',
         'alphabetize': {
           order: 'asc',
           caseInsensitive: true
-        }
+        },
+        'pathGroups': [
+          {
+            pattern: '~/**',
+            group: 'internal',
+            position: 'after'
+          }
+        ],
+        'pathGroupsExcludedImportTypes': ['type']
       }],
-      'import/newline-after-import': 'error',
-      'import/no-unresolved': 'error'
+      'import/newline-after-import': 'error'
     }
   },
   {

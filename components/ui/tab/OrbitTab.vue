@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { DragScroll } from '~/composables/drag-scroll'
-import type { ITabProps, TabsInjection } from '~/types'
 import { TabsSymbol } from '~/types'
+
+import type { ITabProps, TabsInjection } from '~/types'
 
 const {
   tabItems = [],
@@ -66,32 +67,5 @@ provide<TabsInjection>(TabsSymbol, {
 </template>
 
 <style scoped>
-.tab-button {
-  width: 160px;
-  padding: 12px 24px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  color: var(--text-color);
-  font-weight: 500;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  outline: none;
-  flex-shrink: 0;
-}
 
-.tab-button:hover {
-  color: white;
-}
-
-.tab-button.active {
-  background-color: var(--primary-green, #a8d5ba);
-  color: white;
-}
-
-.tab-button:focus {
-  box-shadow: none;
-}
 </style>

@@ -1,32 +1,66 @@
 .tabs-container {
   width: 100%;
   background-color: var(--bg-color);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tabs-header {
   display: flex;
-  border-bottom: 1px solid var(--border-color);
-  background-color: var(--light-green);
+  border-bottom: 1px solid var(--tab-header-border);
+  background-color: var(--tab-header-bg);
   overflow-x: auto;
   white-space: nowrap;
   cursor: grab;
   user-select: none;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
 }
 
+/* Remove default scrollbar */
 .tabs-header::-webkit-scrollbar {
-  display: none;
-  /* 크롬, 사파리에서 스크롤바 숨기기 */
+  display: none; /* Chrome, Safari, newer versions of Opera */
 }
 
+/* Tab Button Modifications */
+.tabs-header .base-button.tab-button {
+  width: var(--tab-button-width);
+  padding: var(--tab-button-padding-y) var(--tab-button-padding-x);
+  background-color: transparent;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: var(--tab-button-font-size);
+  transition: var(--tab-transition);
+  flex-shrink: 0;
+  border: none;
+  position: relative;
+}
+
+/* Active State */
+.tabs-header .base-button.tab-button.active {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+/* Hover State */
+.tabs-header .base-button.tab-button:hover:not(.active) {
+  background-color: color-mix(in srgb, var(--primary-blue) 20%, transparent);
+  color: var(--dark-blue);
+}
+
+/* Focus State */
+.tabs-header .base-button.tab-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* Content Area */
 .tab-content {
-  margin: 60px 20px;
+  padding: 3.75rem 1.25rem;
 }
 
-/* tab panel */
+/* Tab Panel Animation */
 .tab-panel {
   animation: fadeIn 0.3s ease;
 }
@@ -35,16 +69,26 @@
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
 
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .tab-button {
-    padding: 10px 16px;
-    font-size: 14px;
+  .tabs-header .base-button.tab-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
     flex-grow: 1;
+    width: auto;
   }
+
+  .tab-content {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Nested Button Compatibility */
+.tabs-header .base-button.tab-button .base-button {
+  margin: 0;
 }
