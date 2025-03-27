@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { TreeNode } from '~/components/ui/tree/Tree.vue'
 import Tree from '~/components/ui/tree/Tree.vue'
+
+import type { TreeNode } from '~/components/ui/tree/Tree.vue'
 
 const oneDimensionalData = ref<TreeNode[]>([
   {

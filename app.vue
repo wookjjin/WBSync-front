@@ -8,5 +8,7 @@ const loadingStore = useLoadingStore()
   <Toast />
   <Progress v-if="loadingStore.isLoading" />
   <ConfirmOverlay />
-  <NuxtPage />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

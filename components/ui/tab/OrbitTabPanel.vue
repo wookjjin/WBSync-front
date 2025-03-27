@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { ITabPanelProps, TabsInjection } from '~/types'
 import { TabsSymbol } from '~/types'
+
+import type { ITabPanelProps, TabsInjection } from '~/types'
 
 const { id = '' } = defineProps<ITabPanelProps>()
 const tabs = inject<TabsInjection>(TabsSymbol)

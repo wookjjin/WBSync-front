@@ -1,6 +1,7 @@
 <script setup lang='ts'>
-import type { KanbanColumn, KanbanTask } from '~/components/ui/kanban/Kanban.vue'
 import Kanban from '~/components/ui/kanban/Kanban.vue'
+
+import type { KanbanColumn, KanbanTask } from '~/components/ui/kanban/Kanban.vue'
 
 const kanbanColumns = ref<KanbanColumn[]>([
   {

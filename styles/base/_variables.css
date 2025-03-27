@@ -1,41 +1,88 @@
 :root {
-  --primary-green: #a8d5ba; /* 메인 파스텔 그린 */
-  --light-green: #e1f0e5; /* 밝은 파스텔 그린 */
-  --dark-green: #7fb693; /* 어두운 파스텔 그린 */
-  --text-color: #4a6d5a; /* 텍스트 컬러 */
-  --bg-color: #f5f9f7; /* 배경 컬러 */
-  --error-color: #e57373; /* 에러 컬러 */ 
-  --disabled-color: #d8e6de; /* 비활성화 컬러 */
-  --border-color: #c8e0d4; /* 보더 컬러 */
-  --focus-color: #7fb693; /* 포커스 컬러 */
+  --primary-blue: #4A90E2; /* 메인 소프트 블루 */
+  --light-blue: #E3F2FD; /* 밝은 소프트 블루 */
+  --dark-blue: #357ABD; /* 어두운 소프트 블루 */
+  --text-color: #2D3748; /* 텍스트 컬러 (차콜 그레이) */
+  --bg-color: #F0F4F8; /* 배경 컬러 (소프트 블루 그레이) */
+  --error-color: #E57373; /* 에러 컬러 */
+  --disabled-color: #B0BEC5; /* 비활성화 컬러 (뉴트럴 그레이) */
+  --border-color: #90A4AE; /* 보더 컬러 (부드러운 블루 그레이) */
+  --focus-color: #8EC5FC; /* 포커스 컬러 (라이트 블루) */
+  
+  /* Input Variables */
+  --input-padding-x: 14px;
+  --input-padding-y: 10px;
+  --input-border-radius: 6px;
+  --input-transition: all 0.2s ease-in-out;
+  --input-font-size: 14px;
+
+  /* Button Base Variables */
+  --button-border-radius: 4px;
+  --button-transition: all 0.2s ease;
+  --button-gap: 0.5rem;
+  
+  /* Button Sizes */
+  --button-size-small-height: 2rem;
+  --button-size-small-padding-x: 0.75rem;
+  --button-size-small-font-size: 0.75rem;
+  
+  --button-size-medium-height: 2.5rem;
+  --button-size-medium-padding-x: 1rem;
+  --button-size-medium-font-size: 0.875rem;
+  
+  --button-size-large-height: 3rem;
+  --button-size-large-padding-x: 1.25rem;
+  --button-size-large-font-size: 1rem;
+
+  /* Button Color Variables */
+  --button-primary-bg: var(--primary-blue);
+  --button-primary-hover-bg: var(--dark-blue);
+  
+  --button-secondary-bg: var(--light-blue);
+  --button-secondary-hover-bg: var(--primary-blue);
+  
+  --button-outline-border: var(--border-color);
+  --button-outline-hover-border: var(--primary-blue);
+  
+  --button-disabled-bg: var(--disabled-color);
+
+  /* Tab-specific variables */
+  --tab-header-bg: var(--light-blue);
+  --tab-header-border: var(--border-color);
+  --tab-button-width: 10rem;
+  --tab-button-padding-x: 1.5rem;
+  --tab-button-padding-y: 0.75rem;
+  --tab-button-font-size: 1rem;
+  --tab-transition: all 0.3s ease;
+
+  /* Login Screen Specific Variables */
+  --login-bg-gradient: linear-gradient(135deg, var(--light-blue), var(--bg-color));
+  --login-card-bg: white;
+  --login-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  
+  /* Sizing and Spacing */
+  --login-card-width: 22.5rem;
+  --login-card-padding: 2.5rem;
+  --login-card-border-radius: 1rem;
+  
+  /* Typography */
+  --login-title-font-size: 1.75rem;
+  --login-title-color: var(--text-color);
+
+  /* Layout Variables */
+  --scrollbar-size: 16px;
 }
 
-.dp__theme_light {
-  --dp-background-color: var(--bg-color, #f5f9f7);
-  --dp-text-color: var(--text-color, #4a6d5a);
-  --dp-hover-color: var(--light-green, #e1f0e5);
-  --dp-hover-text-color: var(--text-color, #4a6d5a);
-  --dp-hover-icon-color: var(--dark-green, #7fb693);
-  --dp-primary-color: var(--primary-green, #a8d5ba);
-  --dp-primary-disabled-color: var(--disabled-color, #d8e6de);
-  --dp-primary-text-color: var(--text-color, #4a6d5a);
-  --dp-secondary-color: var(--border-color, #c8e0d4);
-  --dp-border-color: var(--border-color, #c8e0d4);
-  --dp-menu-border-color: var(--border-color, #c8e0d4);
-  --dp-border-color-hover: var(--dark-green, #7fb693);
-  --dp-border-color-focus: var(--focus-color, #7fb693);
-  --dp-disabled-color: var(--disabled-color, #d8e6de);
-  --dp-scroll-bar-background: var(--light-green, #e1f0e5);
-  --dp-scroll-bar-color: var(--dark-green, #7fb693);
-  --dp-success-color: var(--dark-green, #7fb693);
-  --dp-success-color-disabled: var(--disabled-color, #d8e6de);
-  --dp-icon-color: var(--dark-green, #7fb693);
-  --dp-danger-color: var(--error-color, #e57373);
-  --dp-marker-color: var(--error-color, #e57373);
-  --dp-tooltip-color: var(--bg-color, #f5f9f7);
-  --dp-disabled-color-text: var(--disabled-color, #d8e6de);
-  --dp-highlight-color: rgba(168, 213, 186, 0.1); /* primary-green with 10% opacity */
-  --dp-range-between-dates-background-color: var(--light-green, #e1f0e5);
-  --dp-range-between-dates-text-color: var(--text-color, #4a6d5a);
-  --dp-range-between-border-color: var(--light-green, #e1f0e5);
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
 }
+*::-webkit-scrollbar-thumb {
+  border: 4px solid white;
+  border-radius: 10px;
+  background-color: var(--disabled-color);
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+

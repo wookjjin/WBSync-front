@@ -16,3 +16,6 @@
 @import "components/skeleton.css";
 @import "components/kanban.css";
 @import "components/date-picker.css";
+
+/* Pages */
+@import "pages/sign-in.css"

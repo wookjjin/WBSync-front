@@ -1,11 +1,12 @@
 <script setup lang='ts'>
-import type { Column } from '~/components/ui/grid/GridBody.vue'
 import GridBody from '~/components/ui/grid/GridBody.vue'
-import type { TotalCount } from '~/components/ui/grid/GridHeader.vue'
 import GridHeader from '~/components/ui/grid/GridHeader.vue'
-import type { LimitOption } from '~/components/ui/pagination/Pagination.vue'
 import Pagination from '~/components/ui/pagination/Pagination.vue'
 import { maskPhoneNumber } from '~/utils'
+
+import type { Column } from '~/components/ui/grid/GridBody.vue'
+import type { TotalCount } from '~/components/ui/grid/GridHeader.vue'
+import type { LimitOption } from '~/components/ui/pagination/Pagination.vue'
 
 interface MockRow {
   name: string,
