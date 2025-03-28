@@ -1,6 +1,7 @@
 :root {
   --primary-blue: #4A90E2; /* 메인 소프트 블루 */
-  --light-blue: #E3F2FD; /* 밝은 소프트 블루 */
+  --secondary-blue: #E3F2FD; /* 세컨더리 블루 */
+  --sky-blue: #BBDEFB; /* 밝은 소프트 블루 */
   --dark-blue: #357ABD; /* 어두운 소프트 블루 */
   --text-color: #2D3748; /* 텍스트 컬러 (차콜 그레이) */
   --bg-color: #F0F4F8; /* 배경 컬러 (소프트 블루 그레이) */
@@ -38,16 +39,16 @@
   --button-primary-bg: var(--primary-blue);
   --button-primary-hover-bg: var(--dark-blue);
   
-  --button-secondary-bg: var(--light-blue);
-  --button-secondary-hover-bg: var(--primary-blue);
+  --button-secondary-bg: var(--secondary-blue);
+  --button-secondary-hover-bg: var(--sky-blue);
   
   --button-outline-border: var(--border-color);
-  --button-outline-hover-border: var(--primary-blue);
+  --button-outline-hover-border: var(--sky-blue);
   
   --button-disabled-bg: var(--disabled-color);
 
   /* Tab-specific variables */
-  --tab-header-bg: var(--light-blue);
+  --tab-header-bg: var(--secondary-blue);
   --tab-header-border: var(--border-color);
   --tab-button-width: 10rem;
   --tab-button-padding-x: 1.5rem;
@@ -56,7 +57,7 @@
   --tab-transition: all 0.3s ease;
 
   /* Login Screen Specific Variables */
-  --login-bg-gradient: linear-gradient(135deg, var(--light-blue), var(--bg-color));
+  --login-bg-gradient: linear-gradient(135deg, var(--secondary-blue), var(--bg-color));
   --login-card-bg: white;
   --login-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   
