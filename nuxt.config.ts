@@ -4,8 +4,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@unocss/nuxt'
   ],
   components: [
     {
@@ -24,5 +24,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   eslint: {
     // options
+  },
+  unocss: {
+    nuxtLayers: true
   }
 })
