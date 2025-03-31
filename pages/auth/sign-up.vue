@@ -4,6 +4,8 @@ import axios from 'axios'
 import type { IUser } from '~/types/auth'
 
 definePageMeta({
+  name: 'SignUp',
+  path: '/sign-up',
   layout: 'auth-layout'
 })
 
@@ -35,7 +37,7 @@ const getPostData = () => {
 }
 
 const goSignIn = () => {
-  router.push('/auth/sign-in')
+  router.push({ name: 'Login' })
 }
 
 
