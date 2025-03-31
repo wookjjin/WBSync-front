@@ -118,25 +118,23 @@ const handleMouseMove = (event: MouseEvent) => {
         <thead>
           <tr>
             <th v-if="useCheckbox">
-              <input
-                type="checkbox" :checked="isAllChecked" :indeterminate="isIndeterminate"
-                @change="toggleAllSelection"
-              >
+              <input type="checkbox" :checked="isAllChecked" :indeterminate="isIndeterminate"
+                @change="toggleAllSelection">
             </th>
-            <th
-              v-for="column in visibleColumns" :key="`grid-column-${String(column.key)}`"
-              :style="{ textAlign: column.align || 'left' }" @click.stop="columnClickEvent(column)"
-            >
-              <span class="column-header" @click.stop="sortColumnEvent(column)">
-                <span class="column-label">{{ column.label }}</span>
-                <span class="sort-icon" :class="{ active: activeSort.key === column.key && column.sortable }">
-                  <span v-if="activeSort.key === column.key">
-                    <span v-if="activeSort.direction === 'asc'">▲</span>
-                    <span v-else-if="activeSort.direction === 'desc'">▼</span>
+            <template v-for="column in visibleColumns" :key="`grid-column-${String(column.key)}`">
+              <th v-if="column.key === 'checkbox' || column.visible !== false"
+                :style="{ textAlign: column.align || 'left' }" @click.stop="columnClickEvent(column)">
+                <span class="column-header" @click.stop="sortColumnEvent(column)">
+                  <span class="column-label">{{ column.label }}</span>
+                  <span class="sort-icon" :class="{ active: activeSort.key === column.key && column.sortable }">
+                    <span v-if="activeSort.key === column.key">
+                      <span v-if="activeSort.direction === 'asc'">▲</span>
+                      <span v-else-if="activeSort.direction === 'desc'">▼</span>
+                    </span>
                   </span>
                 </span>
-              </span>
-            </th>
+              </th>
+            </template>
           </tr>
         </thead>
         <tbody v-if="rows.length">
@@ -144,26 +142,22 @@ const handleMouseMove = (event: MouseEvent) => {
             <td v-if="useCheckbox" class="checkbox-cell">
               <input type="checkbox" :checked="selectedRows.includes(row)" @change="toggleRowSelection(row)">
             </td>
-            <td
-              v-for="column in visibleColumns" :key="`grid-column-${String(column.key)}`"
-              :style="{ textAlign: column.align || 'left' }" @click.stop="rowClickEvent(row)"
-            >
-              <slot :name="column.key" :row="row">
-                <span>{{ row[column.key] }}</span>
-              </slot>
-            </td>
+            <template v-for="column in visibleColumns" :key="`grid-cell-${String(column.key)}-${index}`">
+              <td v-if="column.key === 'checkbox' || column.visible !== false"
+                :style="{ textAlign: column.align || 'left' }" @click.stop="rowClickEvent(row)">
+                <slot :name="column.key" :row="row">
+                  <span>{{ row[column.key] }}</span>
+                </slot>
+              </td>
+            </template>
           </tr>
         </tbody>
         <tbody v-else>
           <tr class="no-data">
             <td :colspan="visibleColumns.length + (useCheckbox ? 1 : 0)">
               <div class="no-data-container">
-                <img
-                  src="/icon/dog-bird.svg"
-                  width="72px"
-                  height="72px"
-                  :style="{ transform: `rotateY(${birdRotation}deg)` }"
-                >
+                <img src="/icon/dog-bird.svg" width="72px" height="72px"
+                  :style="{ transform: `rotateY(${birdRotation}deg)` }">
                 <p>
                   Empty Data
                 </p>

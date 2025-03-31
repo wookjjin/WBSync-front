@@ -4,12 +4,14 @@ import { formatNumber } from '~/utils'
 export type TotalCount = number
 export type TotalLabel = string
 
+
 const {
   totalCount = 0,
   totalLabel = 'Total'
 } = defineProps<{
   totalCount?: TotalCount,
   totalLabel?: TotalLabel,
+  useGridSlotButton?: boolean,
 }>()
 </script>
 
@@ -22,7 +24,7 @@ const {
         </span>
       </slot>
     </div>
-    <div class="grid-header-right">
+    <div v-if="useGridSlotButton" class="grid-header-right">
       <slot name="grid-header-right">
         <button>Slot Button</button>
       </slot>
