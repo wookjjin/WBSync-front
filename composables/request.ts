@@ -9,8 +9,7 @@ declare module 'axios' {
     },
   }
 }
-
-const baseURL: string = 'http://localhost:5000'
+const baseURL: string = 'http://localhost:5000/api'
 
 const instance = axios.create({
   baseURL,

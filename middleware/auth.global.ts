@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware(async (_to, _from) => {
   const refreshToken = localStorage.getItem('refresh-token')
 
   // ✅ 이미 로그인 페이지일 경우, 검사하지 않고 통과
-  if (_to.path === '/auth/sign-in') return
+  if (_to.path === '/login') return
 
   // ✅ 토큰 없지만 리프레시 토큰 있는 경우 → 토큰 재발급 시도
   if (!token && refreshToken) {
@@ -21,13 +21,13 @@ export default defineNuxtRouteMiddleware(async (_to, _from) => {
       console.error('Refresh 실패:', error)
       localStorage.removeItem('token')
       localStorage.removeItem('refresh-token')
-      return navigateTo('/auth/sign-in')
+      return navigateTo('/login')
     }
   }
 
   // ✅ 둘 다 없으면 로그인 페이지로 이동
   if (!token && !refreshToken) {
-    return navigateTo('/auth/sign-in')
+    return navigateTo('/login')
   }
 
   // ✅ 토큰 있고 정상 → 통과
