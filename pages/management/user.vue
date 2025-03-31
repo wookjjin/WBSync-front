@@ -3,7 +3,7 @@
 import GridBody from '~/components/ui/grid/GridBody.vue'
 import GridHeader from '~/components/ui/grid/GridHeader.vue'
 import Pagination from '~/components/ui/pagination/Pagination.vue'
-import { formatTellNumber, maskPhoneNumber } from '~/utils'
+import { maskPhoneNumber } from '~/utils'
 
 import type { Column } from '~/components/ui/grid/GridBody.vue'
 import type { TotalCount } from '~/components/ui/grid/GridHeader.vue'
