@@ -174,36 +174,20 @@ const limitChangeEvent = (limit: string | number) => {
 <template>
   <div class="grid-container">
     <div class="grid-wrapper">
-      <GridHeader
-        :total-count="totalCount"
-        total-label="Total"
-      />
-      <GridBody
-        v-model:selected-rows="selectedRows"
-        :columns="columns"
-        :rows="mockRows"
-        :use-checkbox="true"
-        @update:selected-rows="getSelectedRows(selectedRows)"
-        @column-click-event="columnClickEvent"
-        @sort-change-event="sortChangeEvent"
-        @row-click-event="rowClickEvent"
-      >
+      <GridHeader :total-count="totalCount" total-label="Total" />
+      <GridBody v-model:selected-rows="selectedRows" :columns="columns" :rows="mockRows" :use-checkbox="true"
+        @update:selected-rows="getSelectedRows(selectedRows)" @column-click-event="columnClickEvent"
+        @sort-change-event="sortChangeEvent" @row-click-event="rowClickEvent">
         <template #cellPhone="{ row }">
           <span>
             {{ maskPhoneNumber(row.cellPhone) }}
           </span>
         </template>
       </GridBody>
-      <Pagination
-        :use-limit-list="true"
-        :total-count="totalCount"
-        :page-visible-count="pageVisibleCount"
-        :limit-options="pageLimitOptions"
-        :current-page="pageParams.currentPage"
-        :current-page-limit="pageParams.currentPageLimit"
-        @page-change-event="pageChangeEvent"
-        @limit-change-event="limitChangeEvent"
-      />
+      <Pagination :use-limit-list="true" :total-count="totalCount" :page-visible-count="pageVisibleCount"
+        :limit-options="pageLimitOptions" :current-page="pageParams.currentPage"
+        :current-page-limit="pageParams.currentPageLimit" @page-change-event="pageChangeEvent"
+        @limit-change-event="limitChangeEvent" />
     </div>
   </div>
 </template>
