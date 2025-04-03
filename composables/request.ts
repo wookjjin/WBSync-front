@@ -53,7 +53,7 @@ instance.interceptors.response.use(
       const refreshToken = localStorage.getItem('refresh-token')
       if (!refreshToken) {
         localStorage.removeItem('token')
-        return navigateTo('/auth/sign-in')
+        return navigateTo('/login')
       }
 
       try {
@@ -68,7 +68,7 @@ instance.interceptors.response.use(
         console.error(accessError)
         localStorage.removeItem('token')
         localStorage.removeItem('refresh-token')
-        return navigateTo('/auth/sign-in')
+        return navigateTo('/login')
       }
     }
 

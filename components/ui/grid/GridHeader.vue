@@ -20,7 +20,7 @@ const {
     <div class="grid-header-left">
       <slot name="grid-header-left">
         <span v-if="totalCount">
-          <em> {{ totalLabel }}👀 </em> {{ formatNumber(totalCount) }}
+          <em> {{ totalLabel }} </em> {{ formatNumber(totalCount) }}
         </span>
       </slot>
     </div>
@@ -55,7 +55,7 @@ const {
 .grid-header-left em {
   font-weight: bold;
   font-size: 1.3rem;
-  color: #4f8a5a;
+  color: #0E83FF;
   padding-right: 4px;
   font-style: normal;
 }
@@ -76,8 +76,8 @@ const {
 
 .grid-header-right button {
   background-color: white;
-  color: #4f8a5a;
-  border: 2px solid #4f8a5a;
+  color: #0E83FF;
+  border: 2px solid #0E83FF;
   min-width: 80px;
   height: 32px;
   padding: 4px 20px;
@@ -88,14 +88,14 @@ const {
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #4f8a5a;
+    background-color: #0E83FF;
     color: white;
     box-shadow: 0 3px 6px rgba(79, 138, 90, 0.3);
   }
 
   &:active {
-    background-color: #3b6e45;
-    border-color: #3b6e45;
+    background-color: #0E83FF;
+    border-color: #0E83FF;
     box-shadow: 0 2px 4px rgba(59, 110, 69, 0.3);
   }
 }
