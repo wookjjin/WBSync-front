@@ -190,7 +190,8 @@ table {
 }
 
 thead {
-  background-color: #d4e9dc;
+  background-color: #8EC5FC;
+  color: #fff
 }
 
 th {
@@ -200,7 +201,7 @@ th {
   user-select: none;
   position: relative;
   text-align: center;
-  border-bottom: 2px solid #a8d5ba;
+  border-bottom: 2px solid #BBDEFB;
 }
 
 .column-header {
@@ -266,15 +267,15 @@ td {
 }
 
 tbody tr {
-  border-bottom: 1px solid #a8d5ba;
+  border-bottom: 1px solid #BBDEFB;
   transition: transform 0.2s ease-in-out
 }
 
 tbody tr:not(.no-data):hover {
   cursor: pointer;
   background-color: #f1f5f9;
-  box-shadow: inset 2px 0 0 #4f8a5a, inset -2px 0 0 #4f8a5a;
-  color: #a8d5ba;
+  box-shadow: inset 2px 0 0 #0E83FF, inset -2px 0 0 #0E83FF;
+  color: #BBDEFB;
 }
 
 .checkbox-cell {
@@ -290,7 +291,7 @@ input[type="checkbox"] {
   appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #4f8a5a;
+  border: 2px solid #0E83FF;
   border-radius: 4px;
   display: inline-block;
   position: relative;
@@ -301,8 +302,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-color: #4f8a5a;
-  border-color: #4f8a5a;
+  background-color: #0E83FF;
+  border-color: #0E83FF;
 }
 
 input[type="checkbox"]:checked::after {
@@ -317,8 +318,8 @@ input[type="checkbox"]:checked::after {
 }
 
 input[type="checkbox"]:indeterminate {
-  background-color: #4f8a5a;
-  border-color: #4f8a5a;
+  background-color: #0E83FF;
+  border-color: #0E83FF;
 }
 
 input[type="checkbox"]:indeterminate::after {

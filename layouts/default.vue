@@ -9,7 +9,7 @@ const checkAccessToken = async () => {
 
   if (!refreshToken) {
     bakeToast.error('로그인이 필요해요.')
-    return navigateTo('/auth/sign-in')
+    return navigateTo('/login')
   }
 
   try {
@@ -23,7 +23,7 @@ const checkAccessToken = async () => {
     localStorage.removeItem('token')
     localStorage.removeItem('refresh-token')
     bakeToast.error('세션이 만료되었어요. 다시 로그인해주세요.')
-    return navigateTo('/auth/sign-in')
+    return navigateTo('/login')
   }
 }
 
